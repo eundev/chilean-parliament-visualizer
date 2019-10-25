@@ -1,0 +1,24 @@
+.individual-legislature-wrapper {
+    padding: 50px;
+    display: grid;
+    grid-template-areas: 'context''pie';
+    grid-template-columns: 50% 50%;
+}
+
+.individual-legislature-context {
+    grid-area: 'context';
+}
+
+.individual-legislature-chart {
+    grid-area: 'pie';
+}
+
+.legislature-diputados-wrap {
+    display: flex;
+    padding: 0px 50px;
+}
+
+.legislature-vote-segment {
+    display: inline-block;
+    width: 25%;
+}
