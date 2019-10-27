@@ -1,0 +1,49 @@
+.legislation-card {
+    border: 0.5px solid whitesmoke;
+    box-shadow: 0px 1px 2px rgb(199, 199, 199);
+    width: 30%;
+    display: inline-block;
+    height: 300px;
+    margin: 10px;
+    background-color: white;
+}
+
+.legislation-description {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+.legislation-text-floater {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    justify-content: center;
+}
+
+#legislation-card-description-text {
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.legislation-info {
+    padding: 20px;
+}
+
+.legislation-info #resultado {
+    font-weight: 600;
+}
+
+.legislation-info #tipo {
+    color: gray;
+    font-size: 12px;
+}
+
+.legislation-info #fecha {
+    font-size: 12px;
+    color: gray;
+}

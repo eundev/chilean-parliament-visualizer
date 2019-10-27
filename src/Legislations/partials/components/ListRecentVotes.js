@@ -4,6 +4,7 @@ import { Spin, Card } from "antd";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import "../styles/ListRecentVotes.css";
+import LegislationCard from "./LegislationCard";
 
 var parser = require("fast-xml-parser");
 var he = require("he");
@@ -46,7 +47,9 @@ class ListRecentVotes extends Component {
     var jsonObj = parser.convertToJson(tObj, options);
     this.setState({
       loadingRecentData: false,
-      votings: jsonObj.VotacionesColeccion.Votacion
+      votings: jsonObj.VotacionesColeccion.Votacion.filter(item => {
+        return item.Tipo === "Proyecto de Ley";
+      })
     });
     {
       /* 
@@ -72,49 +75,9 @@ class ListRecentVotes extends Component {
       </Spin>
     ) : (
       <div className="list-recent-votes-wrapper">
-        <h1>Votaciones Recientes</h1>
-        {this.state.votings.map(item => (
-          <Link target="_blank" to={`/votacion/${item.Id}`}>
-            <Card
-              title={moment(item.Fecha)
-                .locale("es")
-                .format("L LT")}
-              style={{
-                width: 250,
-                display: "inline-block",
-                margin: 20,
-                marginLeft: 0,
-                maxHeight: 300,
-                overflowY: "scroll"
-              }}
-            >
-              <p>{item.Descripcion}</p>
-              <p>Tipo: {item.Tipo}</p>
-              <p>Id: {item.Id}</p>
-              <p>
-                No <strong>{item.TotalNo}</strong>
-              </p>
-              <p>
-                Si <strong>{item.TotalSi}</strong>
-              </p>
-              <p>
-                Abstencion <strong>{item.TotalAbstencion}</strong>
-              </p>
-              <p>
-                Dispensado <strong>{item.TotalDispensado}</strong>
-              </p>
-              <p>
-                Resultado:{" "}
-                <strong>
-                  {item.Resultado === "Aprobado" ? (
-                    <span style={{ color: "green" }}>Aprobado</span>
-                  ) : (
-                    <span style={{ color: "red" }}>Rechazado</span>
-                  )}
-                </strong>
-              </p>
-            </Card>
-          </Link>
+        <h1 style={{ marginBottom: 20, marginLeft: 10 }}>Últimas Votaciones</h1>
+        {this.state.votings.map((item, i) => (
+          <LegislationCard info={item} index={i}></LegislationCard>
         ))}
       </div>
     );

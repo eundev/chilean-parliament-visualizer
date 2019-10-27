@@ -154,7 +154,7 @@ class IndividualLegislature extends Component {
                   return item.decision === "Afirmativo";
                 })
                 .map(item => (
-                  <p>
+                  <p id="deputy-decision-cell">
                     <img src={item.img} height="25px"></img> {item.name}
                   </p>
                 ))}
@@ -167,7 +167,7 @@ class IndividualLegislature extends Component {
                   return item.decision === "En Contra";
                 })
                 .map(item => (
-                  <p>
+                  <p id="deputy-decision-cell">
                     <img src={item.img} height="25px"></img> {item.name}
                   </p>
                 ))}
@@ -180,7 +180,7 @@ class IndividualLegislature extends Component {
                   return item.decision === "Abstención";
                 })
                 .map(item => (
-                  <p>
+                  <p id="deputy-decision-cell">
                     <img src={item.img} height="25px"></img> {item.name}
                   </p>
                 ))}
@@ -193,7 +193,7 @@ class IndividualLegislature extends Component {
                   return item.decision === "Dispensado";
                 })
                 .map(item => (
-                  <p>
+                  <p id="deputy-decision-cell">
                     <img src={item.img} height="25px"></img> {item.name}
                   </p>
                 ))}

@@ -18,6 +18,11 @@
     padding: 0px 50px;
 }
 
+#deputy-decision-cell {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
 .legislature-vote-segment {
     display: inline-block;
     width: 25%;

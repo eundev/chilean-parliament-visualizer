@@ -1,0 +1,51 @@
+.ant-select-selection {
+    background-color: #21272d !important;
+}
+
+.deputy-search-wrap {
+    margin: 0px 20px;
+}
+
+.ant-input {
+    color: white !important;
+    border-color: #21272d !important;
+    border-bottom-color: gray !important;
+}
+
+.ant-input:focus {
+    border-color: #d6c111 !important;
+}
+
+.deputy-holder-wrap {
+    height: 400px;
+    overflow-y: scroll;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.deputy-cell {
+    color: white;
+    margin: 5px 0px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 0px 10px;
+}
+
+.deputy-cell:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+p {
+    margin: unset !important;
+}
+
+.deputy-cell .anticon {
+    margin-right: 20px;
+}
+
+.ant-layout {
+    background-color: rgb(250, 250, 250) !important;
+}
