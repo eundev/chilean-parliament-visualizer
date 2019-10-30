@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Layout, Menu, Icon } from "antd";
-import { Link } from "react-router-dom";
+import { Layout, Menu } from "antd";
 import "../styles/HomeLayout.css";
 import DeputySearchList from "../../Deputy/partials/components/DeputySearchList";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 class HomeLayout extends Component {
   render() {
     return (
