@@ -25,7 +25,7 @@ class LegislationCard extends Component {
           </div>
           <div className="legislation-info">
             <p id="tipo">{item.TipoIniciativa["#text"]}</p>
-            <p id="resultado">{item.Resultado}</p>
+            <p id="resultado"></p>
             <p id="fecha">{moment(item.Fecha).format("ll")}</p>
           </div>
         </div>

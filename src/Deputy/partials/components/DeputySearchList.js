@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { AutoComplete, Icon, Input } from "antd";
+import { AutoComplete, Icon, Input, Spin } from "antd";
+import { Link } from "react-router-dom";
 import "../styles/DeputySearchList.css";
+import { deputyService } from "../../../Services/deputyService";
 
 function onSelect(value) {
   console.log("onSelect", value);
@@ -9,117 +11,67 @@ function onSelect(value) {
 class DeputySearchList extends Component {
   state = {
     value: "",
-    dataSource: []
-  };
-
-  onSearch = searchText => {
-    this.setState({
-      dataSource: !searchText
-        ? []
-        : [searchText, searchText.repeat(2), searchText.repeat(3)]
-    });
+    dataSource: [],
+    loadingDeputies: true
   };
 
   onChange = value => {
     this.setState({ value });
   };
 
+  async componentDidMount() {
+    const deputies = await deputyService.getAll();
+    if (deputies) {
+      this.setState({
+        deputies: deputies.data,
+        dataSource: deputies.data.map(item => {
+          return `${item.Nombre} ${item.ApellidoPaterno}`;
+        }),
+        loadingDeputies: false
+      });
+    }
+  }
+
   render() {
     const { dataSource, value } = this.state;
     return (
       <div className="deputy-search-wrap">
-        <AutoComplete
-          dataSource={dataSource}
-          style={{ width: 200 }}
-          onSelect={onSelect}
-          onSearch={this.onSearch}
-          placeholder="Buscar"
-        >
-          <Input
-            suffix={
-              <Icon
-                type="search"
-                style={{ color: "white" }}
-                className="certain-category-icon"
-              />
-            }
-          />
-        </AutoComplete>
+        {this.state.loadingDeputies ? (
+          <Spin spinning={this.state.loadingDeputies}>
+            <div style={{ height: 400, width: "100%" }}></div>
+          </Spin>
+        ) : (
+          <>
+            {/*
 
-        <div className="deputy-holder-wrap">
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Felipe Ward</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Giorgio Jackson</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Pedro Browne</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Daniella Cicardini</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Camila Flores</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Felipe Kast</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Antonio Kast</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-          <div className="deputy-cell">
-            <Icon type="user"></Icon>
-            <p>Gabriel Boric</p>
-          </div>
-        </div>
+            <AutoComplete
+              dataSource={dataSource}
+              style={{ width: 200 }}
+              onSelect={onSelect}
+              placeholder="Buscar"
+            >
+              <Input
+                suffix={
+                  <Icon
+                    type="search"
+                    style={{ color: "white" }}
+                    className="certain-category-icon"
+                  />
+                }
+              />
+              </AutoComplete>*/}
+            <div className="deputy-holder-wrap">
+              {this.state.deputies.map((item, i) => (
+                <Link to={`/diputado/${item.Id}`}>
+                  <div className="deputy-cell" key={i}>
+                    <Icon type="user"></Icon>
+                    <p>{`${item.Nombre} ${item.ApellidoPaterno}`}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     );
   }
