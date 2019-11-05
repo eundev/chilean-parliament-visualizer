@@ -23,6 +23,17 @@ class ProjectsService {
       return false;
     });
   }
+
+  getByAuthor(deputy_id) {
+    const http = axios.create({
+      baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
+    });
+
+    return http.get(`/proyectos/by_author/${deputy_id}/`).catch(error => {
+      console.log(error);
+      return false;
+    });
+  }
 }
 
 export const projectService = new ProjectsService();

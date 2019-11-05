@@ -23,7 +23,7 @@ class DeputyService {
       return false;
     });
   }
-  getVotaciones(deputy_id) {
+  getVotes(deputy_id) {
     const http = axios.create({
       baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
     });
@@ -33,7 +33,7 @@ class DeputyService {
       return false;
     });
   }
-  getAsistencia(deputy_id) {
+  getAttendance(deputy_id) {
     const http = axios.create({
       baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
     });

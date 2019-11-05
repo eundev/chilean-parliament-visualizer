@@ -7,13 +7,16 @@ class OperationalExpendituresGraph extends Component {
     super(props);
     this.state = {};
   }
+
   componentDidCatch(error, info) {
     this.setState({
       hasError: true
     });
   }
+
   async componentDidMount() {
     try {
+      console.log(this.props.gastos);
       await this.setState({
         labels: this.props.gastos.dates,
         category: Object.keys(this.props.gastos).slice(0, -1),
@@ -23,11 +26,15 @@ class OperationalExpendituresGraph extends Component {
             return this.props.gastos[key];
           })
       });
+      console.log(this.state.monto_gastos);
+      console.log("CATEGORIES");
+      console.log(this.state.category);
+      console.log(this.state.labels);
       let data = this.state.category.map((item, i) => {
         return {
           x: this.state.labels,
           y: this.state.monto_gastos[i],
-          name: this.state.category[i],
+          name: item,
           type: "bar"
         };
       });
@@ -40,13 +47,19 @@ class OperationalExpendituresGraph extends Component {
       });
     }
   }
+
   render() {
     return this.state.hasError ? (
       <div>
         <p>No hay información de los gastos de este/a diputad@</p>
       </div>
     ) : (
-      <div id="myDiv" style={{ width: "100%", height: "100vh" }}></div>
+      <div>
+        <h1 style={{ marginTop: 40, marginBottom: 20 }}>
+          Gastos Operacionales por Mes
+        </h1>
+        <div id="myDiv" style={{ width: "100%", height: "50vh" }}></div>
+      </div>
     );
   }
 }
