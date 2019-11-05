@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { AutoComplete, Icon, Input, Spin } from "antd";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "../styles/DeputySearchList.css";
 import { deputyService } from "../../../Services/deputyService";
 
@@ -62,12 +62,17 @@ class DeputySearchList extends Component {
               </AutoComplete>*/}
             <div className="deputy-holder-wrap">
               {this.state.deputies.map((item, i) => (
-                <Link to={`/diputado/${item.Id}`}>
-                  <div className="deputy-cell" key={i}>
-                    <Icon type="user"></Icon>
-                    <p>{`${item.Nombre} ${item.ApellidoPaterno}`}</p>
-                  </div>
-                </Link>
+                <div
+                  className="deputy-cell"
+                  key={i}
+                  onClick={() => {
+                    this.props.history.push(`/diputado/${item.Id}`);
+                    window.location.reload(true);
+                  }}
+                >
+                  <Icon type="user"></Icon>
+                  <p>{`${item.Nombre} ${item.ApellidoPaterno}`}</p>
+                </div>
               ))}
             </div>
           </>
@@ -77,4 +82,4 @@ class DeputySearchList extends Component {
   }
 }
 
-export default DeputySearchList;
+export default withRouter(DeputySearchList);

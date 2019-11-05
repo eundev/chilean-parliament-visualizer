@@ -26,12 +26,14 @@ function AppRouter(props) {
             }}
           ></Route>
           <Route
+            exact
             path="/votacion/:id"
             render={props => {
               return renderWithLayout(IndividualLegislature, HomeLayout, props);
             }}
           ></Route>
           <Route
+            exact
             path="/diputado/:id"
             render={props => {
               return renderWithLayout(DeputyProfile, HomeLayout, props);
