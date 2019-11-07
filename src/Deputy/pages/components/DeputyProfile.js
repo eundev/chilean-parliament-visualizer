@@ -5,6 +5,7 @@ import OperationalExpendituresGraph from "../../partials/components/OperationalE
 import { RingLoader } from "react-spinners";
 import BiographicalData from "../../partials/components/BiographicalData";
 import DeputyProposedProjects from "../../partials/components/DeputyProposedProjects";
+import DeputyVotes from "../../partials/components/DeputyVotes";
 
 class DeputyProfile extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class DeputyProfile extends Component {
           <DeputyProposedProjects
             deputy_id={this.state.deputy.Id}
           ></DeputyProposedProjects>
+          <DeputyVotes deputy_id={this.state.deputy.Id}></DeputyVotes>
         </div>
       );
     } catch (e) {

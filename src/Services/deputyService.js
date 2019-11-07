@@ -28,7 +28,7 @@ class DeputyService {
       baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
     });
 
-    return http.get(`/diputados/${deputy_id}/votaciones`).catch(error => {
+    return http.get(`/diputados/${deputy_id}/votos`).catch(error => {
       console.log(error);
       return false;
     });

@@ -8,7 +8,7 @@ class LegislationCard extends Component {
   render() {
     const item = this.props.info;
     return (
-      <Link to={`/votacion/${item.NumeroBoletin}`}>
+      <Link to={`/votacion/${item.Id}`}>
         <div className="legislation-card">
           <div
             className="legislation-description"
@@ -24,11 +24,9 @@ class LegislationCard extends Component {
             </div>
           </div>
           <div className="legislation-info">
-            <p id="tipo">{item.TipoIniciativa["#text"]}</p>
+            <p id="tipo"></p>
             <p id="resultado"></p>
-            <p id="fecha">
-              {/*moment(item.Votaciones.VotacionProyectoLey.Fecha).format("ll")*/}
-            </p>
+            <p id="fecha"></p>
           </div>
         </div>
       </Link>
