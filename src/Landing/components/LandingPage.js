@@ -335,7 +335,8 @@ function LandingPage() {
               </Col>
             </Row>
           </Container>
-        </div> */}
+        </div>
+*/}
       </div>
 
       <FooterWhite />
