@@ -1,19 +1,5 @@
-.ant-select-selection {
-    background-color: #21272d !important;
-}
-
 .deputy-search-wrap {
     margin: 0px 20px;
-}
-
-.ant-input {
-    color: white !important;
-    border-color: #21272d !important;
-    border-bottom-color: gray !important;
-}
-
-.ant-input:focus {
-    border-color: #d6c111 !important;
 }
 
 .deputy-holder-wrap {

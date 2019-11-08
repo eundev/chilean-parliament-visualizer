@@ -17,10 +17,12 @@ class HomeLayout extends Component {
           }}
           width="280px"
         >
+          {/*
           <img
             className="logo"
             src={require("../../assets/images/voto-parlamentario.png")}
           ></img>
+           */}
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
             <Menu.Item
               key="1"

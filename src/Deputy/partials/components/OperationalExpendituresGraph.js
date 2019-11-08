@@ -55,9 +55,16 @@ class OperationalExpendituresGraph extends Component {
       </div>
     ) : (
       <div>
-        <h1 style={{ marginTop: 40, marginBottom: 20 }}>
-          Gastos Operacionales por Mes
-        </h1>
+        <h2 style={{ padding: "0px 5%", marginTop: 50 }}>
+          Gastos Operacionales{" "}
+          <small>
+            cubiertos por el gobierno, en adición a la dieta parlamentaria, la
+            cual es alrededor de{" "}
+            <span style={{ color: "green", fontWeight: "bold" }}>
+              $6.5 - 7.0MM.
+            </span>
+          </small>
+        </h2>
         <div id="myDiv" style={{ width: "100%", height: "50vh" }}></div>
       </div>
     );

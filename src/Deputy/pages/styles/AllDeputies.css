@@ -1,0 +1,9 @@
+.hover-bg-ws {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.hover-bg-ws:hover {
+    background-color: whitesmoke;
+}

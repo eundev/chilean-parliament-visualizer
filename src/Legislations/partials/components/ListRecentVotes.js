@@ -15,7 +15,7 @@ class ListRecentVotes extends Component {
     const proj = await projectService.getAll();
     if (proj) {
       this.setState({
-        votings: proj.data.slice(0, 20),
+        votings: proj.data.slice(0, 60),
         loadingRecentData: false
       });
     }
@@ -28,7 +28,25 @@ class ListRecentVotes extends Component {
       </Spin>
     ) : (
       <div className="list-recent-votes-wrapper">
-        <h1 style={{ marginBottom: 20, marginLeft: 10 }}>Últimas Votaciones</h1>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingRight: "10%",
+            paddingLeft: 30
+          }}
+        >
+          <h1 style={{ marginBottom: 20, marginLeft: 10 }}>
+            Últimas Votaciones
+          </h1>
+          <div
+            style={{
+              display: "flex"
+            }}
+          ></div>
+        </div>
+
         {this.state.votings.map((item, i) => {
           return (
             <LegislationCard info={item} index={i} key={i}></LegislationCard>

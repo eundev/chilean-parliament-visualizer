@@ -9,6 +9,7 @@
     "chart.js": "^2.8.0",
     "dotenv": "^8.2.0",
     "fast-xml-parser": "^3.13.0",
+    "headroom.js": "^0.10.3",
     "moment": "^2.24.0",
     "nivo": "^0.31.0",
     "plotly.js": "^1.51.1",
