@@ -4,7 +4,7 @@ import { API_URL } from "../env.js";
 class DeputyService {
   getAll() {
     const http = axios.create({
-      baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
+      baseURL: API_URL
     });
 
     return http.get("/diputados/").catch(error => {
@@ -15,7 +15,7 @@ class DeputyService {
 
   getById(deputy_id) {
     const http = axios.create({
-      baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
+      baseURL: API_URL
     });
 
     return http.get(`/diputados/${deputy_id}`).catch(error => {
@@ -25,7 +25,7 @@ class DeputyService {
   }
   getVotes(deputy_id) {
     const http = axios.create({
-      baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
+      baseURL: API_URL
     });
 
     return http.get(`/diputados/${deputy_id}/votos`).catch(error => {
@@ -35,7 +35,7 @@ class DeputyService {
   }
   getAttendance(deputy_id) {
     const http = axios.create({
-      baseURL: "https://cors-anywhere.herokuapp.com/" + API_URL
+      baseURL: API_URL
     });
 
     return http.get(`/diputados/${deputy_id}/asistencia`).catch(error => {
