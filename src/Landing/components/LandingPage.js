@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./landing.css";
 // reactstrap components
 import {
   Button,
@@ -33,108 +33,103 @@ function LandingPage() {
     <>
       <MultiDropdownNavbar />
       <div className="wrapper">
-        <div className="section text-center landing-section">
-          <br />
-          <br />
+        <div className="section text-center landing-section camara-building-backdrop">
           <Container>
             <Row>
               <Col className="ml-auto mr-auto" md="8">
-                <h2 className="title">
+                <h2
+                  className="title"
+                  style={{ color: "white", fontWeight: 600 }}
+                >
                   Información, en las manos de la gente.
                 </h2>
-                <h5>Conoce a la gente que representa tu voz.</h5>
-                <br />
+                <h5 style={{ color: "white", fontWeight: 400 }}>
+                  Conoce a la gente que representa tu voz.
+                </h5>
               </Col>
             </Row>
-            <Row>
-              <Col md="3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <i className="nc-icon nc-palette" />
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">Últimas Votaciones</h4>
-                    <p className="description">
-                      Votaciones al día, con distribuición de votos y
-                      descripción de la ley.
-                    </p>
-                    <Button
-                      className="btn-link"
-                      color="danger"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      Ver votaciones
-                    </Button>
-                  </div>
-                </div>
-              </Col>
-              <Col md="3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <i className="nc-icon nc-bulb-63" />
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">Diputados</h4>
-                    <p>
-                      Perfil de cada diputado, incluyendo qué comunas
-                      representa, como ha votado, asistencia, entre otros.
-                    </p>
-                    <Button
-                      className="btn-link"
-                      color="danger"
-                      href="/diputados"
-                    >
-                      Conocer a los diputados
-                    </Button>
-                  </div>
-                </div>
-              </Col>
-              <Col md="3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <i className="nc-icon nc-chart-bar-32" />
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">Ranking de Gastos</h4>
-                    <p>Mira en qué y cuanto gastan los diputados cada mes.</p>
-                    <Button
-                      className="btn-link"
-                      color="danger"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      Mirar gastos
-                    </Button>
-                  </div>
-                </div>
-              </Col>
-              <Col md="3">
-                <div className="info">
-                  <div className="icon icon-danger">
-                    <i className="nc-icon nc-sun-fog-29" />
-                  </div>
-                  <div className="description">
-                    <h4 className="info-title">¿Tienes una idea?</h4>
-                    <p>
-                      Dinos que quieres ver en la página y haremos lo posible
-                      para realizarlo.
-                    </p>
-                    <Button
-                      className="btn-link"
-                      color="danger"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      Sugerir
-                    </Button>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-            <ListRecentVotes></ListRecentVotes>
           </Container>
         </div>
+        <Container>
+          <Row>
+            <Col md="3">
+              <div className="info">
+                <div className="icon icon-danger">
+                  <i className="nc-icon nc-palette" />
+                </div>
+                <div className="description">
+                  <h4 className="info-title">Últimas Votaciones</h4>
+                  <p className="description">
+                    Votaciones al día, con distribuición de votos y descripción
+                    de la ley.
+                  </p>
+                  <Button className="btn-link" color="danger" href="/proyectos">
+                    Ver votaciones
+                  </Button>
+                </div>
+              </div>
+            </Col>
+            <Col md="3">
+              <div className="info">
+                <div className="icon icon-danger">
+                  <i className="nc-icon nc-user-run" />
+                </div>
+                <div className="description">
+                  <h4 className="info-title">Diputados</h4>
+                  <p>
+                    Perfil de cada diputado, incluyendo qué comunas representa,
+                    como ha votado, asistencia, entre otros.
+                  </p>
+                  <Button className="btn-link" color="danger" href="/diputados">
+                    Conocer a los diputados
+                  </Button>
+                </div>
+              </div>
+            </Col>
+            <Col md="3">
+              <div className="info">
+                <div className="icon icon-danger">
+                  <i className="nc-icon nc-chart-bar-32" />
+                </div>
+                <div className="description">
+                  <h4 className="info-title">Ranking de Gastos</h4>
+                  <p>Mira en qué y cuanto gastan los diputados cada mes.</p>
+                  <Button
+                    className="btn-link"
+                    color="danger"
+                    href="#pablo"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Mirar gastos
+                  </Button>
+                </div>
+              </div>
+            </Col>
+            <Col md="3">
+              <div className="info">
+                <div className="icon icon-danger">
+                  <i className="nc-icon nc-bulb-63" />
+                </div>
+                <div className="description">
+                  <h4 className="info-title">¿Tienes una idea?</h4>
+                  <p>
+                    Dinos que quieres ver en la página y haremos lo posible para
+                    realizarlo.
+                  </p>
+                  <Button
+                    className="btn-link"
+                    color="danger"
+                    href="#pablo"
+                    onClick={e => e.preventDefault()}
+                  >
+                    Sugerir
+                  </Button>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+        <ListRecentVotes list={12}></ListRecentVotes>
 
         {/*
 

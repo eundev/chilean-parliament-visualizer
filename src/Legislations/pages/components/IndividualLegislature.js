@@ -5,6 +5,7 @@ import moment from "moment";
 import { Doughnut } from "react-chartjs-2";
 
 import "../styles/IndividualLegislature.css";
+import { projectService } from "../../../Services/projectService";
 
 var parser = require("fast-xml-parser");
 var he = require("he");
@@ -38,6 +39,7 @@ class IndividualLegislature extends Component {
     };
   }
 
+  /*
   async componentDidMount() {
     const QUERY_LINK = `https://cors-anywhere.herokuapp.com/http://opendata.camara.cl/camaradiputados/WServices/WSLegislativo.asmx/retornarVotacionDetalle?prmVotacionId=${this.props.match.params.id}`;
     const response = await axios.get(QUERY_LINK);
@@ -79,8 +81,7 @@ class IndividualLegislature extends Component {
         ]
       }
     });
-
-    {
+  
       /* 
         <>votos FIELDS<>
         1. Diputado
@@ -90,7 +91,8 @@ class IndividualLegislature extends Component {
           5. Nombre
         6. OpcionVoto
     */
-    }
+  async componentDidMount() {
+    const project = await projectService.getById(this.props.match.params.id);
   }
   render() {
     return this.state.loadingLegislation ? (

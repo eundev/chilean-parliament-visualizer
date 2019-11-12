@@ -7,6 +7,9 @@ import DeputyProfile from "../../Deputy/pages/components/DeputyProfile";
 import LandingPage from "../../Landing/components/LandingPage";
 import TwitterRedesign from "../../Deputy/pages/components/TwitterRedesign";
 import SearchWithSidebar from "../../Deputy/pages/components/SearchWithSidebar";
+import BlogPost from "../../Legislations/pages/components/BlogPost";
+import ListRecentVotes from "../../Legislations/partials/components/ListRecentVotes";
+import AllVotesWrap from "../../Landing/components/AllVotesWrap";
 function renderWithLayout(Component, Layout, props) {
   return (
     <Layout {...props}>
@@ -32,13 +35,8 @@ function AppRouter(props) {
           <Route exact path="/" component={LandingPage}></Route>
           <Route path="/diputado/:id" component={TwitterRedesign}></Route>
           <Route exact path="/diputados" component={SearchWithSidebar}></Route>
-          <Route
-            exact
-            path="/votacion/:id"
-            render={props => {
-              return renderWithLayout(IndividualLegislature, HomeLayout, props);
-            }}
-          ></Route>
+          <Route exact path="/votacion/:id" component={BlogPost}></Route>
+          <Route exact path="/proyectos" component={AllVotesWrap}></Route>
           {/*
           
           <Route

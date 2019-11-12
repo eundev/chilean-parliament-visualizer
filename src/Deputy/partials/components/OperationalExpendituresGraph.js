@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Row, Col, Card, CardHeader, CardBody } from "reactstrap";
 import createPlotlyComponent from "react-plotly.js/factory";
+import { Pie } from "react-chartjs-2";
+import "chartjs-plugin-datalabels";
 const Plotly = window.Plotly;
 const Plot = createPlotlyComponent(Plotly);
 class OperationalExpendituresGraph extends Component {
@@ -24,7 +27,22 @@ class OperationalExpendituresGraph extends Component {
           .slice(0, -1)
           .map(key => {
             return this.props.gastos[key];
-          })
+          }),
+        pieData: {
+          options: {
+            labels: {
+              display: false
+            }
+          },
+          labels: ["19-ago", "20-sept", "30-jun"],
+          datasets: [
+            {
+              data: [14000000, 14000000, 4000000],
+              backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+              hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+            }
+          ]
+        }
       });
       console.log(this.state.monto_gastos);
       console.log("CATEGORIES");
@@ -55,16 +73,81 @@ class OperationalExpendituresGraph extends Component {
       </div>
     ) : (
       <div>
-        <h2 style={{ padding: "0px 5%", marginTop: 50 }}>
+        <h2 style={{ marginTop: 50 }}>
           Gastos Operacionales{" "}
           <small>
             cubiertos por el gobierno, en adición a la dieta parlamentaria, la
-            cual es alrededor de{" "}
-            <span style={{ color: "green", fontWeight: "bold" }}>
-              $6.5 - 7.0MM.
-            </span>
+            cual es alrededor de $6.5 - 7.0MM.
           </small>
         </h2>
+        <br />
+        <br />
+        <Row>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <CardHeader>Gastos para Junio, 2018</CardHeader>
+              <CardBody>
+                <Pie data={this.state.pieData}></Pie>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
         <div id="myDiv" style={{ width: "100%", height: "50vh" }}></div>
       </div>
     );

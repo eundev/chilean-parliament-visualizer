@@ -1,0 +1,29 @@
+#number-indicator {
+    height: 40px;
+    margin-left: 10px;
+    width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+#number-indicator p {
+    font-size: 18px;
+    color: white;
+    font-weight: 800
+}
+
+#deputy-decision-cell {
+    height: 80px;
+    align-items: center;
+    display: flex;
+    border: 2px solid whitesmoke;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.legislature-vote-segment {
+    display: inline-block;
+    margin: 0px 10px;
+}

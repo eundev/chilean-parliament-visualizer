@@ -46,10 +46,7 @@ function MultiDropdownNavbar() {
         <Container>
           <div className="navbar-translate">
             <NavbarBrand id="navbar-brand" to="/" tag={Link}>
-              <img
-                src={require("../assets/img/logo.png")}
-                style={{ height: 40 }}
-              ></img>
+              VOTO PARLAMENTARIO
             </NavbarBrand>
             <button
               className="navbar-toggler"

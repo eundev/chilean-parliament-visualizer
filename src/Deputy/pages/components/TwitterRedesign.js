@@ -22,7 +22,9 @@ import {
   Col,
   UncontrolledTooltip
 } from "reactstrap";
+import { Pie } from "react-chartjs-2";
 import { PacmanLoader } from "react-spinners";
+import { Spin } from "antd";
 // core components
 import ColorNavbar from "../../../Navbars/ColorNavbar.js";
 import TwitterRedesignHeader from "../../../Headers/TwitterRedesignHeader.js";
@@ -31,13 +33,15 @@ import MultiDropdownNavbar from "../../../Navbars/MultiDropdownNavbar.js";
 import OperationalExpendituresGraph from "../../partials/components/OperationalExpendituresGraph.js";
 import { deputyService } from "../../../Services/deputyService.js";
 import DeputyVotes from "../../partials/components/DeputyVotes.js";
+import moment from "moment";
 
 class TwitterRedesign extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeTab: "1",
-      loadingInfo: true
+      loadingInfo: true,
+      fechas: []
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -47,7 +51,12 @@ class TwitterRedesign extends Component {
     if (deputy) {
       this.setState({
         deputy: deputy.data,
-        loadingInfo: false
+        loadingInfo: false,
+        fechas: deputy.data.Militancias.Militancia.map(item => {
+          return `${moment(item.FechaInicio).format("YYYY")}-${moment(
+            item.FechaTermino
+          ).format("YYYY")}`;
+        })
       });
     }
   }
@@ -61,20 +70,19 @@ class TwitterRedesign extends Component {
   render() {
     const { activeTab } = this.state;
     const { deputy } = this.state;
-    return this.state.loadingInfo ? null : (
+    return this.state.loadingInfo ? (
+      <Spin tip="Cargando info...">
+        <div style={{ height: "100vh", width: "100%" }}></div>
+      </Spin>
+    ) : (
       <div>
         <>
           <MultiDropdownNavbar></MultiDropdownNavbar>
           <div className="wrapper" style={{ paddingTop: 200 }}>
-            <div className="profile-content section-white-gray">
+            <div className="section-white-gray">
               <Container>
                 <Row className="owner">
-                  <Col
-                    className="ml-auto mr-auto text-center"
-                    md="2"
-                    sm="4"
-                    xs="6"
-                  >
+                  <Col className="ml-auto mr-auto text-center" xs="12">
                     <div className="avatar">
                       <img
                         alt="..."
@@ -86,7 +94,9 @@ class TwitterRedesign extends Component {
                       <h4>
                         {`${deputy.Nombre} ${deputy.ApellidoPaterno} ${deputy.ApellidoMaterno}`}
                         <br />
-                        <small>@votoparlamentario.cl</small>
+                        <small>
+                          {deputy.Militancias.Militancia[0].Partido.Nombre}
+                        </small>
                       </h4>
                     </div>
                   </Col>
@@ -107,7 +117,9 @@ class TwitterRedesign extends Component {
                         </li>
                         <li>
                           <i className="fa fa-calendar mr-1" />
-                          Joined October 2009
+                          {this.state.fechas.map(item => {
+                            return <p>{item}</p>;
+                          })}
                         </li>
                       </ul>
                     </div>

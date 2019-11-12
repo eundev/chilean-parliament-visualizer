@@ -104,7 +104,7 @@ function SearchWithSidebar(props) {
                       </AutoComplete>
                     </InputGroup>
                   </Form>
-                   */}
+                  */}
 
                   <br />
                   <br />

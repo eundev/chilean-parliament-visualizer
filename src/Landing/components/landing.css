@@ -1,0 +1,10 @@
+.camara-building-backdrop {
+    background-image: url("../../assets/img/camara-building.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-position-y: -50px;
+    height: 400px !important;
+    display: flex;
+    align-items: center;
+}

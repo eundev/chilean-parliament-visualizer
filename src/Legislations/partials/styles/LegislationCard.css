@@ -4,12 +4,22 @@
     margin: 10px;
     font-size: 24px;
     font-weight: 600;
+
 }
 
 .card-description {
-    font-size: 22px;
+    font-size: 16px;
+    height: 100px;
+    overflow-y: scroll;
     line-height: 24px;
     font-weight: 400;
+    color: rgb(72, 72, 72) !important;
+}
+
+.card-body-desc {
+    height: 300px;
+    padding: 25px;
+    overflow: scroll;
 }
 
 .legislation-text-floater {
@@ -21,7 +31,7 @@
 }
 
 #legislation-card-description-text {
-    color: white;
+    color: rgb(72, 72, 72);
     font-weight: 600;
     font-size: 20px;
 }
